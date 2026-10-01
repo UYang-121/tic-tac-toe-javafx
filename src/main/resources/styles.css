@@ -1,0 +1,135 @@
+.root {
+  -fx-font-family: "Avenir Next", "Segoe UI", sans-serif;
+  -fx-background-color: #173247;
+}
+
+.title-screen {
+  -fx-background-color: #102536;
+  -fx-padding: 40;
+}
+
+.title {
+  -fx-text-fill: #f6f1e8;
+  -fx-font-size: 58px;
+  -fx-font-weight: 800;
+}
+
+.subtitle {
+  -fx-text-fill: #a9c1d1;
+  -fx-font-size: 21px;
+}
+
+.primary-button,
+.panel-button {
+  -fx-background-color: #f6f1e8;
+  -fx-text-fill: #102536;
+  -fx-font-weight: 800;
+  -fx-cursor: hand;
+  -fx-background-radius: 8;
+  -fx-padding: 16 28;
+}
+
+.primary-button {
+  -fx-font-size: 16px;
+  -fx-min-width: 220px;
+}
+
+.primary-button:hover,
+.panel-button:hover {
+  -fx-background-color: #ffd166;
+}
+
+.game-screen {
+  -fx-background-color: #173247;
+}
+
+.side-panel {
+  -fx-background-color: #102536;
+}
+
+.panel-heading,
+.status-label,
+.timer-label,
+.result-label {
+  -fx-text-fill: #f6f1e8;
+  -fx-font-weight: 800;
+}
+
+.panel-heading {
+  -fx-font-size: 27px;
+}
+
+.status-label {
+  -fx-font-size: 25px;
+  -fx-padding: 42 0 0 0;
+}
+
+.timer-label {
+  -fx-text-fill: #ffd166;
+  -fx-font-size: 21px;
+}
+
+.progress-bar > .track {
+  -fx-background-color: #29475d;
+  -fx-background-radius: 6;
+}
+
+.progress-bar > .bar {
+  -fx-background-color: #ffd166;
+  -fx-background-radius: 6;
+  -fx-background-insets: 0;
+}
+
+.panel-button {
+  -fx-font-size: 14px;
+}
+
+.hint {
+  -fx-text-fill: #a9c1d1;
+  -fx-font-size: 13px;
+}
+
+.board {
+  -fx-background-color: #f6f1e8;
+  -fx-hgap: 5;
+  -fx-vgap: 5;
+  -fx-padding: 5;
+  -fx-background-radius: 20;
+}
+
+.cell {
+  -fx-background-color: #223a4d;
+  -fx-font-size: 78px;
+  -fx-font-weight: 800;
+  -fx-background-radius: 4;
+  -fx-cursor: hand;
+}
+
+.cell:hover {
+  -fx-background-color: #2e4b61;
+}
+
+.cell:disabled {
+  -fx-opacity: 1;
+}
+
+.x-cell {
+  -fx-text-fill: #ef476f;
+}
+
+.o-cell {
+  -fx-text-fill: #4cc9f0;
+}
+
+.result-overlay {
+  -fx-background-color: rgba(16, 37, 54, 0.96);
+  -fx-background-radius: 18;
+  -fx-padding: 54;
+  -fx-max-width: 380;
+  -fx-max-height: 230;
+}
+
+.result-label {
+  -fx-font-size: 34px;
+}
+
