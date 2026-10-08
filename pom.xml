@@ -51,10 +51,9 @@
         <artifactId>javafx-maven-plugin</artifactId>
         <version>0.0.8</version>
         <configuration>
-          <mainClass>game.tictactoe.App</mainClass>
+          <mainClass>tic.Main</mainClass>
         </configuration>
       </plugin>
     </plugins>
   </build>
 </project>
-

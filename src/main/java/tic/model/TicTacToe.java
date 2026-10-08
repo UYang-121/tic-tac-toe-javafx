@@ -1,27 +1,29 @@
-package game.tictactoe.model;
+package tic.model;
 
-public final class TicTacToe {
+/** The game rules and board state, kept separate from drawing and input. */
+public class TicTacToe {
 
   public enum Mark {
     EMPTY, X, O
   }
 
-  public static final int BOARD_SIZE = 3;
+  private static final int BOARD_SIZE = 3;
 
-  private final Mark[][] board = new Mark[BOARD_SIZE][BOARD_SIZE];
+  private final Mark[][] board;
   private Mark currentPlayer;
   private Mark winner;
   private int moves;
   private boolean gameOver;
 
   public TicTacToe() {
+    board = new Mark[BOARD_SIZE][BOARD_SIZE];
     reset();
   }
 
   public void reset() {
     for (int row = 0; row < BOARD_SIZE; row++) {
-      for (int column = 0; column < BOARD_SIZE; column++) {
-        board[row][column] = Mark.EMPTY;
+      for (int col = 0; col < BOARD_SIZE; col++) {
+        board[row][col] = Mark.EMPTY;
       }
     }
     currentPlayer = Mark.X;
@@ -30,12 +32,12 @@ public final class TicTacToe {
     gameOver = false;
   }
 
-  public boolean makeMove(int row, int column) {
-    if (!inBounds(row, column) || gameOver || board[row][column] != Mark.EMPTY) {
+  public boolean makeMove(int row, int col) {
+    if (!inBounds(row, col) || gameOver || board[row][col] != Mark.EMPTY) {
       return false;
     }
 
-    board[row][column] = currentPlayer;
+    board[row][col] = currentPlayer;
     moves++;
 
     if (hasWon(currentPlayer)) {
@@ -55,11 +57,11 @@ public final class TicTacToe {
     }
   }
 
-  public Mark getCell(int row, int column) {
-    if (!inBounds(row, column)) {
+  public Mark getCell(int row, int col) {
+    if (!inBounds(row, col)) {
       throw new IndexOutOfBoundsException("Board coordinates must be between 0 and 2");
     }
-    return board[row][column];
+    return board[row][col];
   }
 
   public Mark getCurrentPlayer() {
@@ -78,8 +80,8 @@ public final class TicTacToe {
     return gameOver && winner == Mark.EMPTY;
   }
 
-  private boolean inBounds(int row, int column) {
-    return row >= 0 && row < BOARD_SIZE && column >= 0 && column < BOARD_SIZE;
+  private boolean inBounds(int row, int col) {
+    return row >= 0 && row < BOARD_SIZE && col >= 0 && col < BOARD_SIZE;
   }
 
   private void switchPlayer() {
@@ -87,11 +89,11 @@ public final class TicTacToe {
   }
 
   private boolean hasWon(Mark mark) {
-    for (int index = 0; index < BOARD_SIZE; index++) {
-      if (board[index][0] == mark && board[index][1] == mark && board[index][2] == mark) {
+    for (int i = 0; i < BOARD_SIZE; i++) {
+      if (board[i][0] == mark && board[i][1] == mark && board[i][2] == mark) {
         return true;
       }
-      if (board[0][index] == mark && board[1][index] == mark && board[2][index] == mark) {
+      if (board[0][i] == mark && board[1][i] == mark && board[2][i] == mark) {
         return true;
       }
     }
@@ -100,4 +102,3 @@ public final class TicTacToe {
         || board[0][2] == mark && board[1][1] == mark && board[2][0] == mark;
   }
 }
-
